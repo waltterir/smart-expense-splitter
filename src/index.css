@@ -15,56 +15,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.panel {
+  border: solid 1px gray;
+  padding: 13px;
+  border-radius: 14px;
+  background-color: grey;
 }
 
-body {
+.panelTitle {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.leftCol {
+  display: grid;
+  gap: 8px;
+  min-height: 150vh;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.rightCol {
+  height: fit-content;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  .rightCol {
+    position: sticky;
+    top: 20px;
   }
 }
