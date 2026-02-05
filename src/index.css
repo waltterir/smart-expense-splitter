@@ -31,7 +31,6 @@
 .leftCol {
   display: grid;
   gap: 8px;
-  min-height: 150vh;
 }
 
 .rightCol {
