@@ -10,19 +10,17 @@ export function HomePage() {
     const name = newName;
     const newPerson = { id, name };
 
-    if (newName.trim() === "") return;
+    if (!newName.trim()) return;
 
     setNewName("");
     setPeople((prev) => [...prev, newPerson]);
-    console.log("lisääkö");
   };
   return (
     <main className="layout">
       <div className="leftCol">
         <section className="panel">
           <h2 className="panelTitle">People</h2>
-          <p>add people tänne</p>
-          {/* Formi */}
+          {/* Form */}
           <div className="addPeoplePanel">
             <input
               value={newName}
@@ -36,10 +34,11 @@ export function HomePage() {
           <div>
             <p>Lisätyt ihmiset: </p>
             <ul>
-              <li>Wate</li>
-              <li>Stella</li>
-              <li>Nakki</li>
-              <li>Benkku</li>
+              {people.length === 0 ? (
+                <li>No people added yet</li>
+              ) : (
+                people.map((person) => <li key={person.id}>{person.name}</li>)
+              )}
             </ul>
           </div>
         </section>
