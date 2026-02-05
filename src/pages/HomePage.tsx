@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Person } from "../types/person";
 
 export function HomePage() {
@@ -10,7 +10,7 @@ export function HomePage() {
     const name = newName;
     const newPerson = { id, name };
 
-    if (!newName.trim()) return;
+    if (!newName.trim()) return; // tarkistaa ettei nimi ole tyhjä
 
     setNewName("");
     setPeople((prev) => [...prev, newPerson]);
@@ -21,7 +21,7 @@ export function HomePage() {
         <section className="panel">
           <h2 className="panelTitle">People</h2>
           {/* Form */}
-          <div className="addPeoplePanel">
+          <div className="addPersonPanel">
             <input
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
