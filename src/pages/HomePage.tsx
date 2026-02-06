@@ -12,7 +12,6 @@ export function HomePage() {
   const [participantsId, setParticipantsId] = useState<number[]>([]);
 
   const addExpense = () => {
-    console.log("added expense");
     if (description === "") {
       return;
     } else if (amount === "") {
@@ -51,6 +50,12 @@ export function HomePage() {
   // poistetaan henkilö listasta
   const removePerson = (id: number) => {
     setPeople((prev) => prev.filter((person: Person) => person.id !== id));
+  };
+
+  const deleteExpense = (id: number) => {
+    setExpenses((prev) =>
+      prev.filter((expenses: Expense) => expenses.id !== id),
+    );
   };
 
   return (
@@ -137,7 +142,6 @@ export function HomePage() {
             <option value="">Choose payer:</option>
             {people.map((person) => (
               <option value={person.id} key={person.id}>
-                {person.id}
                 {person.name}
               </option>
             ))}
@@ -169,7 +173,31 @@ export function HomePage() {
             ))}
           </div>
           <div>
-            <button onClick={addExpense}>Add Expense</button>
+            <button className="border-2 mb-5" onClick={addExpense}>
+              Add Expense
+            </button>
+            <ul>
+              {expenses.map((expense) => {
+                const payer = people.find((p) => p.id === expense.paidById); // haetaan maksajan nimi people listasta
+                const participantsNames = expense.participantsId
+                  .map((id) => {
+                    const person = people.find((p) => p.id === id);
+                    return person?.name;
+                  })
+                  .filter((name) => name !== undefined); // osallistuajien nimet listasta
+                return (
+                  <li key={expense.id}>
+                    <div>{expense.description}</div>
+                    <div>{expense.amount} €</div>
+                    <div>Paid by: {payer?.name}</div>
+                    <div>Participants: {participantsNames.join(", ")}</div>
+                    <button onClick={() => deleteExpense(expense.id)}>
+                      Delete Expense
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </section>
       </div>
