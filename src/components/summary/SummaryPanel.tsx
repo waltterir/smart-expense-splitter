@@ -1,6 +1,7 @@
 import type { Person } from "../../types/person";
 import type { Expense } from "../../types/expense";
 import { computeBalances } from "../../lib/calculations/computeBalances";
+import { BalanceTable } from "./BalanceTable";
 
 type SummaryPanelProps = {
   people: Person[];
@@ -11,25 +12,7 @@ export function SummaryPanel(props: SummaryPanelProps) {
   const balances = computeBalances(props.people, props.expenses);
   return (
     <div>
-      <ul>
-        {balances.map((person) => (
-          <li
-            className={
-              person.net < 0
-                ? "text-red-500"
-                : person.net > 0
-                  ? "text-green-500"
-                  : ""
-            }
-            key={person.id}
-          >
-            {person.name}: {person.net.toFixed(2)} €
-            {person.net < 0 ? " Owes" : ""}
-            {person.net > 0 ? " Gets back" : ""}
-            {person.net === 0 ? " Settled" : ""}
-          </li>
-        ))}
-      </ul>
+      <BalanceTable balances={balances} />
     </div>
   );
 }
