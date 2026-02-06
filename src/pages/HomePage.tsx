@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Person } from "../types/person";
 import type { Expense } from "../types/expense";
+import { SummaryPanel } from "../components/summary/SummaryPanel";
 
 export function HomePage() {
   const [newName, setNewName] = useState("");
@@ -210,7 +211,7 @@ export function HomePage() {
       <div className="rightCol">
         <section className="panel">
           <h2 className="panelTitle">Summary</h2>
-          <p>summary näkyy täällä</p>
+          <SummaryPanel people={people} expenses={expenses} />
         </section>
       </div>
     </main>
