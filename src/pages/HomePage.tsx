@@ -11,6 +11,31 @@ export function HomePage() {
   const [paidById, setPaidById] = useState<number | null>(null);
   const [participantsId, setParticipantsId] = useState<number[]>([]);
 
+  const addExpense = () => {
+    console.log("added expense");
+    if (description === "") {
+      return;
+    } else if (amount === "") {
+      return;
+    } else if (paidById === null) {
+      return;
+    } else if (participantsId.length === 0) {
+      return;
+    }
+    const newExpense = {
+      id: Date.now(),
+      description: description,
+      amount: amount,
+      paidById: paidById,
+      participantsId: participantsId,
+    };
+    setExpenses((prev) => [...prev, newExpense]);
+    setDescription("");
+    setAmount("");
+    setPaidById(null);
+    setParticipantsId([]);
+  };
+
   // listään henkilö listaan
   const addPerson = () => {
     const id = Date.now();
@@ -56,7 +81,7 @@ export function HomePage() {
                   <li key={person.id}>
                     {person.name}{" "}
                     <button
-                      className="ml-5"
+                      className="ml-5 border-2"
                       onClick={() => removePerson(person.id)}
                     >
                       Remove
@@ -83,7 +108,7 @@ export function HomePage() {
           </div>
 
           <div className="mb-5">
-            <h2>Amount</h2>
+            <h2>Amount € </h2>
             <input
               className="bg-white text-black"
               value={amount}
@@ -117,7 +142,7 @@ export function HomePage() {
               </option>
             ))}
           </select>
-          <div className="mt-10">
+          <div className="mt-10 mb-7">
             <p>Participants</p>
             {people.map((person) => (
               <ul>
@@ -142,6 +167,9 @@ export function HomePage() {
                 </li>
               </ul>
             ))}
+          </div>
+          <div>
+            <button onClick={addExpense}>Add Expense</button>
           </div>
         </section>
       </div>
