@@ -153,6 +153,7 @@ export function HomePage() {
                 <li key={person.id}>
                   {person.name}
                   <input
+                    className="ml-3"
                     type="checkbox"
                     checked={participantsId.includes(person.id)}
                     onChange={() => {
@@ -171,11 +172,11 @@ export function HomePage() {
                 </li>
               </ul>
             ))}
-          </div>
-          <div>
-            <button className="border-2 mb-5" onClick={addExpense}>
+            <button className="border-2 mb-3 mt-5" onClick={addExpense}>
               Add Expense
             </button>
+          </div>
+          <div>
             <ul>
               {expenses.map((expense) => {
                 const payer = people.find((p) => p.id === expense.paidById); // haetaan maksajan nimi people listasta
@@ -190,8 +191,13 @@ export function HomePage() {
                     <div>{expense.description}</div>
                     <div>{expense.amount} €</div>
                     <div>Paid by: {payer?.name}</div>
-                    <div>Participants: {participantsNames.join(", ")}</div>
-                    <button onClick={() => deleteExpense(expense.id)}>
+                    <div className="mb-5">
+                      Participants: {participantsNames.join(", ")}
+                    </div>
+                    <button
+                      className="border-2 mb-5"
+                      onClick={() => deleteExpense(expense.id)}
+                    >
                       Delete Expense
                     </button>
                   </li>
