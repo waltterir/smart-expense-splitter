@@ -10,7 +10,8 @@ Containerin joka ottaa childrenin homepage
 
 ## opein:
 
-kontrolloidun inputin ja arrayn päivityksen prev => ...prev, newName
+kontrolloidun inputin value = newName ja onChange(e) => setNewName(e.target.value )
+ja arrayn päivityksen prev => ...prev, newName
 
 ## miksi kontrolloitu tärkeää?
 
