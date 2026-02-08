@@ -5,10 +5,15 @@ import { SummaryPanel } from "../components/summary/SummaryPanel";
 import { PeopleManager } from "../components/people/peopleManager";
 import { ExpenseForm } from "../components/expenses/ExpenseForm";
 import { ExpenseList } from "../components/expenses/ExpenseList";
+import { loadState } from "../lib/storage/loadState";
+import { useEffect } from "react";
+import { saveState } from "../lib/storage/saveState";
 
 export function HomePage() {
-  const [people, setPeople] = useState<Person[]>([]);
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [people, setPeople] = useState<Person[]>(() => loadState("people", []));
+  const [expenses, setExpenses] = useState<Expense[]>(() =>
+    loadState("expenses", []),
+  );
 
   const addExpense = (data: ExpenseFormData) => {
     const newExpense = {
@@ -41,6 +46,14 @@ export function HomePage() {
       prev.filter((expenses: Expense) => expenses.id !== id),
     );
   };
+
+  useEffect(() => {
+    saveState("people", people);
+  }, [people]);
+
+  useEffect(() => {
+    saveState("expenses", expenses);
+  }, [expenses]);
 
   return (
     <main className="layout">
