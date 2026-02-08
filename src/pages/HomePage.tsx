@@ -1,19 +1,14 @@
-import { useState } from "react";
 import type { Person } from "../types/person";
 import type { Expense, ExpenseFormData } from "../types/expense";
 import { SummaryPanel } from "../components/summary/SummaryPanel";
 import { PeopleManager } from "../components/people/peopleManager";
 import { ExpenseForm } from "../components/expenses/ExpenseForm";
 import { ExpenseList } from "../components/expenses/ExpenseList";
-import { loadState } from "../lib/storage/loadState";
-import { useEffect } from "react";
-import { saveState } from "../lib/storage/saveState";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export function HomePage() {
-  const [people, setPeople] = useState<Person[]>(() => loadState("people", []));
-  const [expenses, setExpenses] = useState<Expense[]>(() =>
-    loadState("expenses", []),
-  );
+  const [people, setPeople] = useLocalStorage<Person[]>("people", []);
+  const [expenses, setExpenses] = useLocalStorage<Expense[]>("expenses", []);
 
   const addExpense = (data: ExpenseFormData) => {
     const newExpense = {
@@ -46,15 +41,6 @@ export function HomePage() {
       prev.filter((expenses: Expense) => expenses.id !== id),
     );
   };
-
-  useEffect(() => {
-    saveState("people", people);
-  }, [people]);
-
-  useEffect(() => {
-    saveState("expenses", expenses);
-  }, [expenses]);
-
   return (
     <main className="layout">
       <div className="leftCol">
