@@ -103,7 +103,7 @@ export function HomePage() {
           <div className="mb-5">
             <p>Description</p>
             <input
-              className="bg-white placeholder-black "
+              className="bg-white placeholder-black text-black"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               type="text"
@@ -116,7 +116,7 @@ export function HomePage() {
           <div className="mb-5">
             <h2>Amount € </h2>
             <input
-              className="bg-white placeholder-black"
+              className="bg-white placeholder-black text-black"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               type="number"

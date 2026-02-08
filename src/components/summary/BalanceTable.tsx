@@ -1,12 +1,4 @@
-type BalanceTableProps = {
-  balances: {
-    id: number;
-    name: string;
-    paid: number;
-    shouldPay: number;
-    net: number;
-  }[];
-};
+import type { BalanceTableProps } from "../../types/balance";
 
 export function BalanceTable(props: BalanceTableProps) {
   return (
