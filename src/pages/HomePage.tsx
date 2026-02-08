@@ -35,6 +35,7 @@ export function HomePage() {
     setPeople((prev) => prev.filter((person: Person) => person.id !== id));
   };
 
+  // poistetaan expense listasta
   const deleteExpense = (id: number) => {
     setExpenses((prev) =>
       prev.filter((expenses: Expense) => expenses.id !== id),
