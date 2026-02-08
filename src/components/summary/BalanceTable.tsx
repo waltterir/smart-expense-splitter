@@ -1,9 +1,9 @@
 import type { BalanceTableProps } from "../../types/balance";
 
-export function BalanceTable(props: BalanceTableProps) {
+export function BalanceTable({ balances }: BalanceTableProps) {
   return (
     <ul>
-      {props.balances.map((person) => (
+      {balances.map((person) => (
         <li
           className={
             person.net < 0

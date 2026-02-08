@@ -1,18 +1,22 @@
-import type { Person } from "../../types/person";
-import type { Expense } from "../../types/expense";
 import { computeBalances } from "../../lib/calculations/computeBalances";
 import { BalanceTable } from "./BalanceTable";
+import type { SummaryPanelProps } from "../../types/summary";
+import { SettlementList } from "./SettlementList";
+import { computeSettlements } from "../../lib/calculations/computeSettlements";
 
-type SummaryPanelProps = {
-  people: Person[];
-  expenses: Expense[];
-};
+export function SummaryPanel({ people, expenses }: SummaryPanelProps) {
+  if (expenses.length === 0) {
+    return <p className="font-bold">No expenses yet</p>;
+  }
+  const balances = computeBalances(people, expenses);
+  const settlements = computeSettlements(balances);
 
-export function SummaryPanel(props: SummaryPanelProps) {
-  const balances = computeBalances(props.people, props.expenses);
   return (
     <div>
+      <h3 className="mb-2 mt-4 font-bold">Balances: </h3>
       <BalanceTable balances={balances} />
+      <h3 className="mb-2 mt-4 font-bold">Suggested Payments: </h3>
+      <SettlementList settlements={settlements} people={people} />
     </div>
   );
 }

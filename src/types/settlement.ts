@@ -1,3 +1,5 @@
+import type { Person } from "./person";
+
 export type Settlement = {
   fromId: number;
   toId: number;
@@ -5,5 +7,6 @@ export type Settlement = {
 };
 
 export type SettlementListProps = {
+  people: Person[];
   settlements: Settlement[];
 };
