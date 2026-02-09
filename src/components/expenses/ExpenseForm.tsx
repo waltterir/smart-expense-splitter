@@ -27,7 +27,7 @@ export function ExpenseForm(props: ExpenseFormProps) {
           placeholder="Give Description:"
         />
       </div>
-      <div className="mb-5 mb-8">
+      <div className="mb-8">
         <h2>Amount € </h2>
         <input
           className="bg-white placeholder-black text-black"

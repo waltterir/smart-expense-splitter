@@ -18,7 +18,7 @@ The application is deployed on Vercel:
 
 ## Preview
 
-![Smart Expense Splitter UI](docs/image.png)
+![Smart Expense Splitter UI](./docs/smart-expense-splitter.png)
 
 ---
 
@@ -45,7 +45,7 @@ The application is deployed on Vercel:
 The app automatically calculates balances by splitting each expense evenly among participants.  
 It then suggests the simplest set of payments needed to settle all debts fairly, minimizing the number of transactions between people.
 
---- 
+---
 
 ## 📌 About This Project
 
