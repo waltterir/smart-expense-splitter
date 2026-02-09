@@ -36,7 +36,7 @@ The application is deployed on Vercel:
   - Shows who needs to pay back
 - **Suggested payments**
   - The app suggests the simplest payments between participants  
-    (e.g. _“Person pays Me 10€”_)
+    (e.g. _“Person pays Another 10€”_)
 
 ---
 
