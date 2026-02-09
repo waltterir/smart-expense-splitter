@@ -10,11 +10,10 @@ export type PeopleManagerProps = {
 
 export function PeopleManager(props: PeopleManagerProps) {
   return (
-    <section className="panel">
+    <>
       <h2 className="panelTitle">People</h2>
-      {/* Form */}
       <PersonForm onAddPerson={props.onAddPerson} />
       <PeopleList people={props.people} onRemovePerson={props.onRemovePerson} />
-    </section>
+    </>
   );
 }

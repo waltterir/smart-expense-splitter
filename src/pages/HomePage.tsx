@@ -47,7 +47,6 @@ export function HomePage() {
       <div className="frame">
         <div className="leftCol">
           <section className="panel">
-            <h2 className="panelTitle">People</h2>
             <PeopleManager
               people={people}
               onAddPerson={addPerson}

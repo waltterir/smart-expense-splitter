@@ -11,7 +11,7 @@ export type ExpenseListProps = {
 export function ExpenseList(props: ExpenseListProps) {
   return (
     <div>
-      <ul>
+      <ul className="expenseList">
         {props.expenses.map((expense) => {
           return (
             <ExpenseItem

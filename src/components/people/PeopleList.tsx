@@ -8,14 +8,14 @@ export type PeopleListProps = {
 export function PeopleList(props: PeopleListProps) {
   return (
     <div>
-      <h3 className="font-bold mb-3">Added People: </h3>
-      <ul>
+      <h3 className="subTitle">Added People: </h3>
+      <ul className="peopleList">
         {props.people.length === 0 ? (
-          <li>No people added yet</li>
+          <li className="expenseMeta">No people added yet</li>
         ) : (
           props.people.map((person) => (
-            <li key={person.id}>
-              {person.name}{" "}
+            <li key={person.id} className="peopleRow">
+              <span className="personName">{person.name}</span>
               <button
                 className="removePersonBtn mb-3"
                 onClick={() => props.onRemovePerson(person.id)}

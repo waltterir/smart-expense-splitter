@@ -238,6 +238,71 @@ select:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
+}
+.expenseCard {
+  background: rgba(30, 38, 56, 0.35);
+  border: 1px solid rgba(47, 58, 82, 0.35);
+  border-radius: 14px;
+
+  padding: 16px;
+  margin-top: 14px;
+
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.35);
+
+  list-style: none;
+}
+
+.expenseMeta {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.expenseTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+.expenseList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+}
+.subTitle {
+  margin: 12px 0 8px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.peopleList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.peopleRow {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(30, 38, 56, 0.35);
+  border: 1px solid rgba(47, 58, 82, 0.35);
+  border-radius: 12px;
+
+  padding: 10px 14px;
+
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.personName {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .deleteExpenseBtn:hover {

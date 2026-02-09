@@ -16,11 +16,13 @@ export function ExpenseItem(props: ExpenseItemProps) {
     })
     .filter((name) => name !== undefined); // osallistuajien nimet listasta
   return (
-    <li>
-      <div>{props.expense.description}</div>
-      <div>{props.expense.amount} €</div>
-      <div>Paid By: {payer?.name}</div>
-      <div>Participants: {participantsNames.join(", ")}</div>
+    <li className="expenseCard">
+      <div className="expenseTitle">{props.expense.description}</div>
+      <div className="expenseMeta">{props.expense.amount} €</div>
+      <div className="expenseMeta">Paid By: {payer?.name}</div>
+      <div className="expenseMeta mb-5">
+        Participants: {participantsNames.join(", ")}
+      </div>
       <button
         className="deleteExpenseBtn"
         onClick={() => props.onDeleteExpense(props.expense.id)}
