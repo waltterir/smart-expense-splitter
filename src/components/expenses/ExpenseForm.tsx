@@ -9,13 +9,13 @@ export type ExpenseFormProps = {
 
 export function ExpenseForm(props: ExpenseFormProps) {
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState<number>(0);
   const [paidById, setPaidById] = useState<number | null>(null);
   const [participantsId, setParticipantsId] = useState<number[]>([]);
 
   return (
     <section>
-      <div className="mb-5">
+      <div className="mb-8">
         <p>Description</p>
         <input
           className="bg-white placeholder-black text-black"
@@ -27,12 +27,12 @@ export function ExpenseForm(props: ExpenseFormProps) {
           placeholder="Give Description:"
         />
       </div>
-      <div className="mb-5">
+      <div className="mb-5 mb-8">
         <h2>Amount € </h2>
         <input
           className="bg-white placeholder-black text-black"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          value={amount === 0 ? "" : amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
           type="number"
           name="amount"
           id="amountId"
@@ -40,7 +40,7 @@ export function ExpenseForm(props: ExpenseFormProps) {
         />
       </div>
       <select
-        className="bg-gray-600 text-white"
+        className="payerSelect"
         name="paidById"
         id="expenses"
         value={paidById ?? ""}
@@ -61,40 +61,38 @@ export function ExpenseForm(props: ExpenseFormProps) {
         ))}
       </select>
       <div className="mt-10 mb-7">
-        <p>Participants</p>
-        {props.people.map((person) => (
-          <ul>
-            <li key={person.id}>
-              {person.name}
+        <h3>Participants</h3>
+        <ul className="participantsList">
+          {props.people.map((person) => (
+            <li key={person.id} className="participantRow">
               <input
-                className="ml-3"
                 type="checkbox"
                 checked={participantsId.includes(person.id)}
                 onChange={() => {
                   const isSelected = participantsId.includes(person.id);
-                  if (isSelected) {
-                    setParticipantsId((prev) =>
-                      prev.filter(
-                        (participantId) => participantId !== person.id,
-                      ),
-                    );
-                  } else {
-                    setParticipantsId((prev) => [...prev, person.id]);
-                  }
+                  setParticipantsId((prev) =>
+                    isSelected
+                      ? prev.filter((id) => id !== person.id)
+                      : [...prev, person.id],
+                  );
                 }}
               />
+
+              <span>{person.name}</span>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
+
         <button
+          className="addExpenseBtn mt-5"
           onClick={() => {
             if (!description.trim()) return;
-            if (!amount.trim()) return;
+            if (amount <= 0) return;
             if (paidById === null) return;
             if (participantsId.length === 0) return;
 
             const data = {
-              description,
+              description: description.trim(),
               amount,
               paidById,
               participantsId,
@@ -103,7 +101,7 @@ export function ExpenseForm(props: ExpenseFormProps) {
             props.onAddExpense(data);
 
             setDescription("");
-            setAmount("");
+            setAmount(0);
             setPaidById(null);
             setParticipantsId([]);
           }}

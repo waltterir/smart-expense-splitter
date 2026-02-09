@@ -10,7 +10,7 @@ export function computeBalances(people: Person[], expenses: Expense[]) {
   }
   for (let expense of expenses) {
     const payerid = expense.paidById;
-    const amountNum = Number(expense.amount);
+    const amountNum = expense.amount;
     if (payerid === null) {
       continue;
     }
@@ -27,6 +27,7 @@ export function computeBalances(people: Person[], expenses: Expense[]) {
   for (let expense of expenses) {
     const amountNum = Number(expense.amount);
     const participantsCount = expense.participantsId.length;
+    if (participantsCount === 0) continue;
     const share = amountNum / participantsCount;
     expense.participantsId.forEach((participantId) => {
       const current = shouldPayMap.get(participantId);

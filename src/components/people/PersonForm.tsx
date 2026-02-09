@@ -9,13 +9,15 @@ export function PersonForm(props: PersonFormProps) {
   return (
     <div className="addPersonPanel">
       <input
+        className="peopleInput"
         value={newName}
         onChange={(e) => setNewName(e.target.value)}
         type="text"
-        placeholder="Type a name: "
+        placeholder="Enter name..."
       />
+
       <button
-        className="ml-5"
+        className="addPersonBtn"
         onClick={() => {
           if (!newName.trim()) return;
           props.onAddPerson(newName);

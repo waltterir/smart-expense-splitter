@@ -1,0 +1,306 @@
+.page {
+  min-height: 100vh;
+  background: #0b0d12;
+  padding: 40px; /* Figma: rectangle alkaa x=40,y=40 */
+  color: rgba(255, 255, 255, 0.92);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+/* Iso taustakehys (Rectangle 1) */
+.frame {
+  background: rgba(20, 27, 36, 0.2);
+  border-radius: 20px;
+  padding: 28px 36px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  min-height: 1307px;
+  max-width: 1360px;
+  margin: 0;
+}
+
+.leftCol {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rightCol {
+  width: 399px;
+  height: fit-content;
+}
+
+.panel {
+  background: rgba(30, 38, 56, 0.5);
+  border: 1px solid rgba(47, 58, 82, 0.35);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0px 8px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+.panelTitle {
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: #e6e6e6;
+}
+
+@media (max-width: 1150px) {
+  .frame {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .leftCol,
+  .rightCol {
+    width: 100%;
+  }
+}
+/* Figman input-kentät */
+input,
+select {
+  width: 100%;
+  background: #2a2f3a;
+  border: none;
+  border-radius: 12px;
+
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #eaeaea;
+
+  outline: none;
+}
+
+/* Placeholder Figman harmaaksi */
+input::placeholder {
+  color: #aaa;
+  font-weight: 600;
+}
+
+/* Dropdown nuoli ja padding */
+select {
+  cursor: pointer;
+}
+
+/* Kun klikataan kenttää */
+input:focus,
+select:focus {
+  border: 1px solid rgba(46, 96, 178, 0.8);
+}
+
+.payerSelect {
+  width: 200px; /* Figmassa sama */
+  background: #2a2f3a; /* tumma input */
+  border: none;
+  border-radius: 12px;
+
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #aaa;
+  outline: none;
+  cursor: pointer;
+}
+.addPersonBtn {
+  background: #2e60b2;
+  border: none;
+  border-radius: 12px;
+
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #faffff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addPersonBtn:hover {
+  filter: brightness(1.1);
+}
+.addPersonPanel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* input venyy, nappi pysyy oikealla */
+.peopleInput {
+  flex: 1;
+  background: #2a2f3a;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #eaeaea;
+  outline: none;
+}
+
+.peopleInput::placeholder {
+  color: #aaa;
+}
+
+.addPersonBtn {
+  flex-shrink: 0; /* estää venymisen */
+  background: #2e60b2;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.removePersonBtn {
+  background: #2e60b2; /* sama kuin Add */
+  border: none;
+  border-radius: 8px;
+
+  padding: 3px 10px; /* ohut */
+  font-size: 13px;
+  font-weight: 600;
+
+  color: white;
+  cursor: pointer;
+
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.removePersonBtn:hover {
+  filter: brightness(1.1);
+}
+.addExpenseBtn {
+  width: 100%; /* Figmassa koko kortin levyinen */
+  background: #2e60b2; /* sama sininen kuin Add */
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: 600;
+
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addExpenseBtn:hover {
+  filter: brightness(1.1);
+}
+.participantsList {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.participantRow {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Figmassa about 10px */
+}
+
+.participantRow input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0; /* poistaa selaimen extra spacing */
+}
+.deleteExpenseBtn {
+  width: 100%;
+  background: #2e60b2; /* sama sininen */
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteExpenseBtn:hover {
+  filter: brightness(1.1);
+}
+/* MOBILE TUNING */
+@media (max-width: 600px) {
+  .page {
+    padding: 14px; /* ennen 40px */
+  }
+
+  .frame {
+    padding: 14px; /* ennen 28px 36px */
+    gap: 16px; /* ennen 32px */
+    border-radius: 16px;
+  }
+
+  .panel {
+    padding: 16px; /* ennen 24px */
+    border-radius: 14px;
+  }
+
+  .panelTitle {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  /* People input + Add button: pinotaan päällekkäin */
+  .addPersonPanel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .peopleInput {
+    width: 100%;
+  }
+
+  .addPersonBtn {
+    width: 100%;
+  }
+
+  /* ExpenseForm: jos sulla on kenttiä rivissä (esim payer), tee niistäkin siistejä */
+  .payerSelect {
+    width: 100%; /* mobiilissa helpompi */
+    max-width: none;
+  }
+
+  /* Participants lista: lisää ilmaa */
+  .participantsList {
+    gap: 10px;
+  }
+
+  .participantRow {
+    gap: 10px;
+    padding: 4px 0;
+  }
+
+  /* Add/Delete expense napit: täysleveäksi mobiilissa */
+  .addExpenseBtn,
+  .deleteExpenseBtn,
+  .primaryBtn {
+    width: 100%;
+    max-width: none;
+  }
+}

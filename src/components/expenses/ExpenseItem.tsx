@@ -22,7 +22,7 @@ export function ExpenseItem(props: ExpenseItemProps) {
       <div>Paid By: {payer?.name}</div>
       <div>Participants: {participantsNames.join(", ")}</div>
       <button
-        className="border-2 mt-5"
+        className="deleteExpenseBtn"
         onClick={() => props.onDeleteExpense(props.expense.id)}
       >
         Delete Expense

@@ -5,6 +5,7 @@ import { PeopleManager } from "../components/people/peopleManager";
 import { ExpenseForm } from "../components/expenses/ExpenseForm";
 import { ExpenseList } from "../components/expenses/ExpenseList";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import "../HomePage.css";
 
 export function HomePage() {
   const [people, setPeople] = useLocalStorage<Person[]>("people", []);
@@ -42,30 +43,35 @@ export function HomePage() {
     );
   };
   return (
-    <main className="layout">
-      <div className="leftCol">
-        <section>
-          <PeopleManager
-            people={people}
-            onAddPerson={addPerson}
-            onRemovePerson={removePerson}
-          />
-        </section>
-        <section className="panel">
-          <h2 className="panelTitle">Expenses</h2>
-          <ExpenseForm people={people} onAddExpense={addExpense} />
-          <ExpenseList
-            people={people}
-            expenses={expenses}
-            onDeleteExpense={deleteExpense}
-          />
-        </section>
-      </div>
-      <div className="rightCol">
-        <section className="panel">
-          <h2 className="panelTitle">Summary</h2>
-          <SummaryPanel people={people} expenses={expenses} />
-        </section>
+    <main className="page">
+      <div className="frame">
+        <div className="leftCol">
+          <section className="panel">
+            <h2 className="panelTitle">People</h2>
+            <PeopleManager
+              people={people}
+              onAddPerson={addPerson}
+              onRemovePerson={removePerson}
+            />
+          </section>
+
+          <section className="panel">
+            <h2 className="panelTitle">Expenses</h2>
+            <ExpenseForm people={people} onAddExpense={addExpense} />
+            <ExpenseList
+              people={people}
+              expenses={expenses}
+              onDeleteExpense={deleteExpense}
+            />
+          </section>
+        </div>
+
+        <div className="rightCol">
+          <section className="panel">
+            <h2 className="panelTitle">Summary</h2>
+            <SummaryPanel people={people} expenses={expenses} />
+          </section>
+        </div>
       </div>
     </main>
   );
