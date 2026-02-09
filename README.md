@@ -40,6 +40,13 @@ The application is deployed on Vercel:
 
 ---
 
+## ⚖️ Settlement Logic
+
+The app automatically calculates balances by splitting each expense evenly among participants.  
+It then suggests the simplest set of payments needed to settle all debts fairly, minimizing the number of transactions between people.
+
+--- 
+
 ## 📌 About This Project
 
 This application was developed as a personal practice project to learn and improve:
