@@ -2,7 +2,7 @@ import type { BalanceTableProps } from "../../types/balance";
 
 export function BalanceTable({ balances }: BalanceTableProps) {
   return (
-    <ul>
+    <ul className="summaryList">
       {balances.map((person) => (
         <li
           className={
