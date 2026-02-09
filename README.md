@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Smart Expense Splitter 💸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Smart Expense Splitter is a personal React project for splitting shared expenses between people.
 
-Currently, two official plugins are available:
+What makes it **smart** is that the app not only tracks expenses — it automatically calculates group balances and suggests who should pay whom to settle everything fairly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built to improve my skills in React, TypeScript, state management, and UI development based on a Figma design.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Live Demo
 
-## Expanding the ESLint configuration
+The application is deployed on Vercel:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 https://smart-expense-splitter-pied.vercel.app/
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Preview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+![Smart Expense Splitter UI](docs/image.png)
+
+---
+
+## ✨ Key Features
+
+- Add and manage people in a group
+- Add shared expenses with:
+  - Description
+  - Amount
+  - Payer
+  - Participants
+- View expense history with delete option
+- **Smart balance calculation**
+  - Shows who is owed money
+  - Shows who needs to pay back
+- **Suggested payments**
+  - The app suggests the simplest payments between participants  
+    (e.g. _“Person pays Me 10€”_)
+
+---
+
+## 📌 About This Project
+
+This application was developed as a personal practice project to learn and improve:
+
+- React component structure
+- TypeScript typing
+- LocalStorage persistence
+- UI styling based on a Figma prototype
+- Smart expense settlement logic
+
+---
+
+## 🎨 UI Design (Figma)
+
+The user interface was built based on a Figma prototype:
+
+🔗 https://www.figma.com/design/6aCj2Jr7ICFdUbRcsrr7sQ/Smart-Expense-Splitter-Design
+
+---
+
+## 🛠 Tech Stack
+
+- React + TypeScript
+- Vite
+- Custom CSS styling based on Figma design
+- Tailwind CSS
+- LocalStorage for persistent data
+
+---
+
+## 🚀 Getting Started
+
+Install dependencies:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open in browser:
+
+```bash
+http://localhost:5173
 ```
