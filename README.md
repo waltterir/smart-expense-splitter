@@ -49,7 +49,7 @@ It then suggests the simplest set of payments needed to settle all debts fairly,
 
 ## 📌 About This Project
 
-This application was developed as a personal practice project to learn and improve:
+This application was developed as a personal project to learn and improve:
 
 - React component structure
 - TypeScript typing
