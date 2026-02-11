@@ -1,10 +1,9 @@
 # Smart Expense Splitter 💸
 
-Smart Expense Splitter is a personal React project for splitting shared expenses between people.
+Smart Expense Splitter is a React + TypeScript web application for splitting shared expenses within a group.
 
-What makes it **smart** is that the app not only tracks expenses — it automatically calculates group balances and suggests who should pay whom to settle everything fairly.
+The app automatically calculates balances and suggests the simplest set of payments needed to settle debts fairly, minimizing unnecessary transactions.
 
-This project was built to improve my skills in React, TypeScript, state management, and UI development based on a Figma design.
 
 ---
 
