@@ -21,7 +21,7 @@ The application is deployed on Vercel:
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - Add and manage people in a group
 - Add shared expenses with:
@@ -39,14 +39,14 @@ The application is deployed on Vercel:
 
 ---
 
-## ⚖️ Settlement Logic
+## Settlement Logic
 
 The app automatically calculates balances by splitting each expense evenly among participants.  
 It then suggests the simplest set of payments needed to settle all debts fairly, minimizing the number of transactions between people.
 
 ---
 
-## 📌 About This Project
+## About This Project
 
 This application was developed as a personal project to learn and improve:
 
@@ -58,7 +58,7 @@ This application was developed as a personal project to learn and improve:
 
 ---
 
-## 🎨 UI Design (Figma)
+## UI Design (Figma)
 
 The user interface was built based on a Figma prototype:
 
@@ -66,7 +66,7 @@ The user interface was built based on a Figma prototype:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - React + TypeScript
 - Vite
@@ -76,7 +76,7 @@ The user interface was built based on a Figma prototype:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Install dependencies:
 
